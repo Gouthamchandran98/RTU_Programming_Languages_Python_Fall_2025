@@ -1,38 +1,27 @@
+# ...existing code...
 """
-Task 4 – Text-based Arithmetic Analyzer
---------------------------------------
-Create a text-based analyzer that:
-1. Counts non-space characters.
-2. Counts words.
-3. Extracts numbers and computes their sum and average.
-Use helper functions:
-- count_characters(text)
-- count_words(text)
-- extract_numbers(text)
-- analyze_text(text)
-Print formatted summary in main.
+Task 3 – Function with Combined Logic
+------------------------------------
+Write a function `analyze_sentence(text)` that returns:
+1. total character count (len)
+2. word count (split)
+3. whether it contains the word "Python" (case-insensitive)
+Return results as a tuple and print summary in main.
 """
 
-def count_characters(text):
-    """Count non-space characters in a string."""
-    # TODO: implement
-    pass
+import re
 
-def count_words(text):
-    """Count number of words in a string."""
-    # TODO: implement
-    pass
-
-def extract_numbers(text):
-    """Return list of integers found in text."""
-    # TODO: implement
-    pass
-
-def analyze_text(text):
-    """Perform text-based arithmetic analysis."""
-    # TODO: call helper functions and compute total, average, etc.
-    pass
+def analyze_sentence(text):
+    """Return length, word count, and whether 'Python' appears in text."""
+    total_chars = len(text)
+    word_count = len(text.split())
+    contains_python = bool(re.search(r"\bpython\b", text, re.IGNORECASE))
+    return total_chars, word_count, contains_python
 
 if __name__ == "__main__":
-    # TODO: read input, call analyze_text(), and print results
-    pass
+    sentence = input("Enter a sentence: ")
+    chars, words, has_python = analyze_sentence(sentence)
+    print(f"Total characters: {chars}")
+    print(f"Word count: {words}")
+    print(f"Contains 'Python': {'Yes' if has_python else 'No'}")
+# ...existing code...
